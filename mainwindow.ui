@@ -1,0 +1,435 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>800</width>
+    <height>600</height>
+   </rect>
+  </property>
+  <property name="font">
+   <font>
+    <family>Consolas</family>
+   </font>
+  </property>
+  <property name="windowTitle">
+   <string>MainWindow</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <widget class="QGroupBox" name="groupBox">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>0</y>
+      <width>771</width>
+      <height>51</height>
+     </rect>
+    </property>
+    <property name="title">
+     <string>account profile</string>
+    </property>
+    <widget class="QWidget" name="gridLayoutWidget">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>20</y>
+       <width>741</width>
+       <height>22</height>
+      </rect>
+     </property>
+     <layout class="QGridLayout" name="gridLayout">
+      <item row="0" column="2">
+       <widget class="QLabel" name="label_3">
+        <property name="font">
+         <font>
+          <family>Consolas</family>
+          <pointsize>11</pointsize>
+         </font>
+        </property>
+        <property name="text">
+         <string>User ID:</string>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="3">
+       <widget class="QLineEdit" name="lineEdit_2">
+        <property name="enabled">
+         <bool>true</bool>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="4">
+       <widget class="QLabel" name="label_2">
+        <property name="font">
+         <font>
+          <family>Consolas</family>
+          <pointsize>11</pointsize>
+         </font>
+        </property>
+        <property name="text">
+         <string>Warehouse:</string>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="5">
+       <widget class="QLineEdit" name="lineEdit_3">
+        <property name="enabled">
+         <bool>true</bool>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="1">
+       <widget class="QLineEdit" name="lineEdit">
+        <property name="enabled">
+         <bool>true</bool>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="0">
+       <widget class="QLabel" name="label">
+        <property name="font">
+         <font>
+          <family>Consolas</family>
+          <pointsize>11</pointsize>
+         </font>
+        </property>
+        <property name="text">
+         <string>User Name:</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+   </widget>
+   <widget class="QGroupBox" name="groupBox_2">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>50</y>
+      <width>321</width>
+      <height>511</height>
+     </rect>
+    </property>
+    <property name="title">
+     <string>Warehouse Detail</string>
+    </property>
+    <widget class="QWidget" name="verticalLayoutWidget">
+     <property name="geometry">
+      <rect>
+       <x>9</x>
+       <y>19</y>
+       <width>301</width>
+       <height>481</height>
+      </rect>
+     </property>
+     <layout class="QVBoxLayout" name="verticalLayout">
+      <item>
+       <widget class="QTableView" name="tableView"/>
+      </item>
+     </layout>
+    </widget>
+   </widget>
+   <widget class="QGroupBox" name="groupBox_3">
+    <property name="geometry">
+     <rect>
+      <x>340</x>
+      <y>50</y>
+      <width>441</width>
+      <height>141</height>
+     </rect>
+    </property>
+    <property name="title">
+     <string>entering warehouse</string>
+    </property>
+    <widget class="QWidget" name="gridLayoutWidget_2">
+     <property name="geometry">
+      <rect>
+       <x>9</x>
+       <y>19</y>
+       <width>421</width>
+       <height>112</height>
+      </rect>
+     </property>
+     <layout class="QGridLayout" name="gridLayout_2">
+      <item row="0" column="0">
+       <widget class="QLabel" name="label_4">
+        <property name="text">
+         <string>SKU:</string>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="1">
+       <widget class="QLineEdit" name="EN_cargo_name"/>
+      </item>
+      <item row="1" column="0">
+       <widget class="QLabel" name="label_5">
+        <property name="text">
+         <string>Cargo Name</string>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="1">
+       <widget class="QLineEdit" name="EN_SKU"/>
+      </item>
+      <item row="2" column="0">
+       <widget class="QLabel" name="label_6">
+        <property name="text">
+         <string>Comment:</string>
+        </property>
+       </widget>
+      </item>
+      <item row="2" column="2">
+       <widget class="QPushButton" name="EN_empty_comment">
+        <property name="text">
+         <string>empty</string>
+        </property>
+       </widget>
+      </item>
+      <item row="2" column="1">
+       <widget class="QLineEdit" name="EN_comment"/>
+      </item>
+      <item row="0" column="2">
+       <widget class="QPushButton" name="EN_empty_SKU">
+        <property name="text">
+         <string>empty</string>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="2">
+       <widget class="QPushButton" name="EN_empty_name">
+        <property name="text">
+         <string>empty</string>
+        </property>
+       </widget>
+      </item>
+      <item row="3" column="1">
+       <widget class="QPushButton" name="EN_confrim">
+        <property name="text">
+         <string>Confrim</string>
+        </property>
+       </widget>
+      </item>
+      <item row="3" column="2">
+       <widget class="QPushButton" name="EN_empty_all">
+        <property name="text">
+         <string>empty all</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+   </widget>
+   <widget class="QGroupBox" name="groupBox_4">
+    <property name="geometry">
+     <rect>
+      <x>340</x>
+      <y>200</y>
+      <width>441</width>
+      <height>141</height>
+     </rect>
+    </property>
+    <property name="title">
+     <string>ex-warehouse</string>
+    </property>
+    <widget class="QWidget" name="gridLayoutWidget_3">
+     <property name="geometry">
+      <rect>
+       <x>9</x>
+       <y>19</y>
+       <width>421</width>
+       <height>112</height>
+      </rect>
+     </property>
+     <layout class="QGridLayout" name="gridLayout_3">
+      <item row="0" column="0">
+       <widget class="QLabel" name="label_7">
+        <property name="text">
+         <string>SKU:</string>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="1">
+       <widget class="QLineEdit" name="EX_cargo_name"/>
+      </item>
+      <item row="1" column="0">
+       <widget class="QLabel" name="label_8">
+        <property name="text">
+         <string>Cargo Name</string>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="1">
+       <widget class="QLineEdit" name="EX_SKU"/>
+      </item>
+      <item row="2" column="0">
+       <widget class="QLabel" name="label_9">
+        <property name="text">
+         <string>Comment:</string>
+        </property>
+       </widget>
+      </item>
+      <item row="2" column="2">
+       <widget class="QPushButton" name="EX_empty_comment">
+        <property name="text">
+         <string>empty</string>
+        </property>
+       </widget>
+      </item>
+      <item row="2" column="1">
+       <widget class="QLineEdit" name="EX_comment"/>
+      </item>
+      <item row="0" column="2">
+       <widget class="QPushButton" name="EX_empty_SKU">
+        <property name="text">
+         <string>empty</string>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="2">
+       <widget class="QPushButton" name="EX_empty_name">
+        <property name="text">
+         <string>empty</string>
+        </property>
+       </widget>
+      </item>
+      <item row="3" column="1">
+       <widget class="QPushButton" name="EX_confrim">
+        <property name="text">
+         <string>Confrim</string>
+        </property>
+       </widget>
+      </item>
+      <item row="3" column="2">
+       <widget class="QPushButton" name="EX_empty_all">
+        <property name="text">
+         <string>empty all</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+   </widget>
+   <widget class="QGroupBox" name="groupBox_5">
+    <property name="geometry">
+     <rect>
+      <x>340</x>
+      <y>350</y>
+      <width>441</width>
+      <height>201</height>
+     </rect>
+    </property>
+    <property name="title">
+     <string>Searching</string>
+    </property>
+    <widget class="QWidget" name="gridLayoutWidget_4">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>19</y>
+       <width>421</width>
+       <height>171</height>
+      </rect>
+     </property>
+     <layout class="QGridLayout" name="gridLayout_4">
+      <item row="0" column="0">
+       <widget class="QLineEdit" name="Search_Key"/>
+      </item>
+      <item row="0" column="3">
+       <widget class="QPushButton" name="pushButton_11">
+        <property name="mouseTracking">
+         <bool>false</bool>
+        </property>
+        <property name="text">
+         <string>action</string>
+        </property>
+        <property name="checkable">
+         <bool>false</bool>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="2">
+       <widget class="QComboBox" name="SearchBy_comboBox">
+        <item>
+         <property name="text">
+          <string>SKU</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>Name</string>
+         </property>
+        </item>
+       </widget>
+      </item>
+      <item row="0" column="1">
+       <widget class="QLabel" name="label_10">
+        <property name="text">
+         <string>Search by:</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+   </widget>
+  </widget>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>800</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <widget class="QMenu" name="menuaccount">
+    <property name="title">
+     <string>account</string>
+    </property>
+    <addaction name="actionchange_password"/>
+    <addaction name="actionexit_2"/>
+   </widget>
+   <addaction name="menuaccount"/>
+  </widget>
+  <widget class="QStatusBar" name="statusbar"/>
+  <action name="actionimport_from_excel">
+   <property name="text">
+    <string>import SKU from excel</string>
+   </property>
+  </action>
+  <action name="actionexit">
+   <property name="text">
+    <string>create new warehouse</string>
+   </property>
+  </action>
+  <action name="actionnew_account">
+   <property name="text">
+    <string>new account</string>
+   </property>
+  </action>
+  <action name="actiondelete_adminstator">
+   <property name="text">
+    <string>delete adminstator</string>
+   </property>
+  </action>
+  <action name="actionchange_password">
+   <property name="text">
+    <string>change password</string>
+   </property>
+  </action>
+  <action name="actiondelete_warehouse">
+   <property name="text">
+    <string>delete warehouse</string>
+   </property>
+  </action>
+  <action name="actionexit_2">
+   <property name="text">
+    <string>exit</string>
+   </property>
+  </action>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
