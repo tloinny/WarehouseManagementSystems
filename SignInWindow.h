@@ -19,10 +19,15 @@
 #include <QtWidgets/QPushButton>
 #include <QtWidgets/QVBoxLayout>
 #include <QtWidgets/QWidget>
+#include <QMessageBox>
+#include "mainwindow.h"
+#include "sql.h"
+#include "administrator.h"
+#include "owner.h"
 
 QT_BEGIN_NAMESPACE
 
-class SignInWindow : public QObject
+class SignInWindow : public QWidget
 {
     Q_OBJECT
 public:
@@ -40,13 +45,24 @@ public:
     QLabel *label_3;
     QLabel *label;
 
+    SQL *mysql;
+
+    administrator *admin;
+    Owner *owner;
+    MainWindow * w;
     int Sign_In_Success_flag;
-    SignInWindow()
+
+    SignInWindow(SQL * sqlptr = nullptr, MainWindow * W = nullptr)
     {
+        mysql = sqlptr;
+        w = W;
         Sign_In_Success_flag = 0;
         parent = new QWidget;
         setupUi(parent);
-        connect(pushButton_2,SIGNAL(clicked()),this,SLOT(CheckLogIn()));
+        connect(pushButton, SIGNAL(clicked()), this, SLOT(CheckLogIn()));
+        connect(pushButton_2, SIGNAL(clicked()), this, SLOT(CheckSignIn()));
+        parent->setWindowFlags(parent->windowFlags() &~ (Qt::WindowMinMaxButtonsHint));
+        parent->setFixedSize(parent->width(),parent->height());
         parent->show();
     }
 
@@ -74,6 +90,7 @@ public:
         gridLayout->setObjectName(QString::fromUtf8("gridLayout"));
         lineEdit_2 = new QLineEdit(verticalLayoutWidget);
         lineEdit_2->setObjectName(QString::fromUtf8("lineEdit_2"));
+        lineEdit_2->setEchoMode(QLineEdit::Password);
 
         gridLayout->addWidget(lineEdit_2, 2, 1, 1, 1);
 
@@ -101,7 +118,6 @@ public:
 
         lineEdit = new QLineEdit(verticalLayoutWidget);
         lineEdit->setObjectName(QString::fromUtf8("lineEdit"));
-
         gridLayout->addWidget(lineEdit, 1, 1, 1, 1);
 
         label_3 = new QLabel(verticalLayoutWidget);
@@ -141,7 +157,76 @@ signals:
 public slots:
     void CheckLogIn()
     {
-        qDebug("LogIn");
+        QString Account = lineEdit->text();
+        QString Password = lineEdit_2->text();
+        if(Account != "" && Password != "")
+        {
+            QSqlQuery query;
+            QString sql;
+            if(comboBox->currentText() == "Admin")
+            {
+                sql = "select adminpassword from warehouse_db.admin where adminaccount = \'"+Account+"\';";
+                qDebug()<<sql;
+                query.exec(sql);
+                qDebug()<<query.lastError();
+                query.next();
+                if(query.value(0).toString()==Password)
+                {
+                    qDebug()<<"admin log in success";
+                    sql = "select adminid, adminwarehouse, adminname from warehouse_db.admin where adminaccount = \'"+Account+"\';";
+                    query.exec(sql);
+                    query.next();
+                    qDebug()<<query.value(0).toString()<<query.value(1).toString()<<query.value(2).toString();
+                    admin = new administrator((query.value(0).toString()).toInt(nullptr,10),(query.value(1).toString()).toInt(nullptr,10),query.value(2).toString());
+                    //Sign_In_Success_flag = 1;
+                    w->SetAccountInfo(admin->adminID,admin->adminWarehouseID,admin->adminName);
+                    w->show();
+                    parent->hide();
+                }else
+                {
+                    QMessageBox::critical(nullptr,QObject::tr("Fail to log in..."), "account or password doesn't right");
+                    lineEdit->clear();
+                    lineEdit_2->clear();
+                }
+            }else if(comboBox->currentText() == "Owner")
+            {
+                sql = "select ownerpassword from warehouse_db.owner where owneraccount = \'"+Account+"\';";
+                qDebug()<<sql;
+                query.exec(sql);
+                qDebug()<<query.lastError();
+                query.next();
+                if(query.value(0).toString()==Password)
+                {
+                    qDebug()<<"owner log in success";
+                    sql = "select ownerid, ownername from warehouse_db.owner where owneraccount = \'"+Account+"\';";
+                    query.exec(sql);
+                    query.next();
+                    qDebug()<<query.value(0).toString()<<query.value(1).toString();
+                    owner = new Owner((query.value(0).toString()).toInt(nullptr,10),query.value(1).toString());
+                }else
+                {
+                    QMessageBox::critical(nullptr,QObject::tr("Fail to log in..."), "account or password doesn't right");
+                    lineEdit->clear();
+                    lineEdit_2->clear();
+                }
+            }
+        }else
+        {
+            qDebug("account or password can't be empty");
+        }
+    }
+    void CheckSignIn()
+    {
+        qDebug("SignIn");
+        QString Account = lineEdit->text();
+        QString Password = lineEdit_2->text();
+        if(Account != "" && Password != "")
+        {
+            qDebug("good condition!");
+        }else
+        {
+            qDebug("account or password can't be empty");
+        }
     }
 };
 

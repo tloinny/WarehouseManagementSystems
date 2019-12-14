@@ -16,13 +16,17 @@ DEFINES += QT_DEPRECATED_WARNINGS
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
+    administrator.cpp \
     main.cpp \
     mainwindow.cpp \
+    owner.cpp \
     sql.cpp
 
 HEADERS += \
     SignInWindow.h \
+    administrator.h \
     mainwindow.h \
+    owner.h \
     sql.h
 
 FORMS += \
