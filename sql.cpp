@@ -1,5 +1,8 @@
 #include "sql.h"
 #include <QMessageBox>
+#include <QSqlDatabase>
+#include <QSqlQuery>
+#include <QSqlTableModel>
 
 SQL::SQL(const QString db_type, const QString HostName, int port, const QString UserName, const QString UserPassWord)
 {

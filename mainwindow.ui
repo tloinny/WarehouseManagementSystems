@@ -127,7 +127,7 @@
      </property>
      <layout class="QVBoxLayout" name="verticalLayout">
       <item>
-       <widget class="QTableView" name="tableView"/>
+       <widget class="QTableView" name="SQLTable"/>
       </item>
      </layout>
     </widget>
@@ -154,6 +154,20 @@
       </rect>
      </property>
      <layout class="QGridLayout" name="gridLayout_2">
+      <item row="1" column="4">
+       <widget class="QPushButton" name="EN_empty_comment">
+        <property name="text">
+         <string>empty</string>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="0">
+       <widget class="QLabel" name="label_6">
+        <property name="text">
+         <string>Comment:</string>
+        </property>
+       </widget>
+      </item>
       <item row="0" column="0">
        <widget class="QLabel" name="label_4">
         <property name="text">
@@ -161,61 +175,40 @@
         </property>
        </widget>
       </item>
-      <item row="1" column="1">
-       <widget class="QLineEdit" name="EN_cargo_name"/>
-      </item>
-      <item row="1" column="0">
-       <widget class="QLabel" name="label_5">
-        <property name="text">
-         <string>Cargo Name</string>
-        </property>
-       </widget>
-      </item>
-      <item row="0" column="1">
-       <widget class="QLineEdit" name="EN_SKU"/>
-      </item>
-      <item row="2" column="0">
-       <widget class="QLabel" name="label_6">
-        <property name="text">
-         <string>Comment:</string>
-        </property>
-       </widget>
-      </item>
-      <item row="2" column="2">
-       <widget class="QPushButton" name="EN_empty_comment">
-        <property name="text">
-         <string>empty</string>
-        </property>
-       </widget>
-      </item>
-      <item row="2" column="1">
-       <widget class="QLineEdit" name="EN_comment"/>
-      </item>
-      <item row="0" column="2">
+      <item row="0" column="4">
        <widget class="QPushButton" name="EN_empty_SKU">
         <property name="text">
          <string>empty</string>
         </property>
        </widget>
       </item>
-      <item row="1" column="2">
-       <widget class="QPushButton" name="EN_empty_name">
-        <property name="text">
-         <string>empty</string>
-        </property>
-       </widget>
-      </item>
-      <item row="3" column="1">
-       <widget class="QPushButton" name="EN_confrim">
-        <property name="text">
-         <string>Confrim</string>
-        </property>
-       </widget>
-      </item>
-      <item row="3" column="2">
+      <item row="2" column="4">
        <widget class="QPushButton" name="EN_empty_all">
         <property name="text">
          <string>empty all</string>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="1">
+       <widget class="QLineEdit" name="EN_SKU"/>
+      </item>
+      <item row="0" column="2">
+       <widget class="QLabel" name="label_5">
+        <property name="text">
+         <string>number</string>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="3">
+       <widget class="QLineEdit" name="EN_Num"/>
+      </item>
+      <item row="1" column="1" colspan="3">
+       <widget class="QLineEdit" name="EN_comment"/>
+      </item>
+      <item row="2" column="1" colspan="3">
+       <widget class="QPushButton" name="EN_confrim">
+        <property name="text">
+         <string>Confrim</string>
         </property>
        </widget>
       </item>
@@ -244,6 +237,34 @@
       </rect>
      </property>
      <layout class="QGridLayout" name="gridLayout_3">
+      <item row="2" column="4">
+       <widget class="QPushButton" name="EX_empty_all">
+        <property name="text">
+         <string>empty all</string>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="0">
+       <widget class="QLabel" name="label_9">
+        <property name="text">
+         <string>Comment:</string>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="4">
+       <widget class="QPushButton" name="EX_empty_comment">
+        <property name="text">
+         <string>empty</string>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="2">
+       <widget class="QLabel" name="label_8">
+        <property name="text">
+         <string>number</string>
+        </property>
+       </widget>
+      </item>
       <item row="0" column="0">
        <widget class="QLabel" name="label_7">
         <property name="text">
@@ -251,61 +272,26 @@
         </property>
        </widget>
       </item>
-      <item row="1" column="1">
-       <widget class="QLineEdit" name="EX_cargo_name"/>
-      </item>
-      <item row="1" column="0">
-       <widget class="QLabel" name="label_8">
-        <property name="text">
-         <string>Cargo Name</string>
-        </property>
-       </widget>
-      </item>
       <item row="0" column="1">
        <widget class="QLineEdit" name="EX_SKU"/>
       </item>
-      <item row="2" column="0">
-       <widget class="QLabel" name="label_9">
-        <property name="text">
-         <string>Comment:</string>
-        </property>
-       </widget>
-      </item>
-      <item row="2" column="2">
-       <widget class="QPushButton" name="EX_empty_comment">
-        <property name="text">
-         <string>empty</string>
-        </property>
-       </widget>
-      </item>
-      <item row="2" column="1">
-       <widget class="QLineEdit" name="EX_comment"/>
-      </item>
-      <item row="0" column="2">
+      <item row="0" column="4">
        <widget class="QPushButton" name="EX_empty_SKU">
         <property name="text">
          <string>empty</string>
         </property>
        </widget>
       </item>
-      <item row="1" column="2">
-       <widget class="QPushButton" name="EX_empty_name">
-        <property name="text">
-         <string>empty</string>
-        </property>
-       </widget>
+      <item row="0" column="3">
+       <widget class="QLineEdit" name="EX_Num"/>
       </item>
-      <item row="3" column="1">
+      <item row="1" column="1" colspan="3">
+       <widget class="QLineEdit" name="EX_comment"/>
+      </item>
+      <item row="2" column="1" colspan="3">
        <widget class="QPushButton" name="EX_confrim">
         <property name="text">
          <string>Confrim</string>
-        </property>
-       </widget>
-      </item>
-      <item row="3" column="2">
-       <widget class="QPushButton" name="EX_empty_all">
-        <property name="text">
-         <string>empty all</string>
         </property>
        </widget>
       </item>
@@ -338,7 +324,7 @@
        <widget class="QLineEdit" name="Search_Key"/>
       </item>
       <item row="0" column="3">
-       <widget class="QPushButton" name="pushButton_11">
+       <widget class="QPushButton" name="Search_action">
         <property name="mouseTracking">
          <bool>false</bool>
         </property>
@@ -347,6 +333,13 @@
         </property>
         <property name="checkable">
          <bool>false</bool>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="1">
+       <widget class="QLabel" name="label_10">
+        <property name="text">
+         <string>Search by:</string>
         </property>
        </widget>
       </item>
@@ -364,10 +357,10 @@
         </item>
        </widget>
       </item>
-      <item row="0" column="1">
-       <widget class="QLabel" name="label_10">
+      <item row="1" column="0" colspan="2">
+       <widget class="QPushButton" name="ShowAll">
         <property name="text">
-         <string>Search by:</string>
+         <string>Display all the details of warehouse</string>
         </property>
        </widget>
       </item>
@@ -431,5 +424,134 @@
   </action>
  </widget>
  <resources/>
- <connections/>
+ <connections>
+  <connection>
+   <sender>EN_empty_SKU</sender>
+   <signal>clicked()</signal>
+   <receiver>EN_SKU</receiver>
+   <slot>clear()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>740</x>
+     <y>107</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>623</x>
+     <y>107</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>EN_empty_comment</sender>
+   <signal>clicked()</signal>
+   <receiver>EN_comment</receiver>
+   <slot>clear()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>741</x>
+     <y>167</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>602</x>
+     <y>161</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>EN_empty_all</sender>
+   <signal>clicked()</signal>
+   <receiver>EN_comment</receiver>
+   <slot>clear()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>738</x>
+     <y>192</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>663</x>
+     <y>163</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>EN_empty_all</sender>
+   <signal>clicked()</signal>
+   <receiver>EN_SKU</receiver>
+   <slot>clear()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>722</x>
+     <y>190</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>669</x>
+     <y>107</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>EX_empty_SKU</sender>
+   <signal>clicked()</signal>
+   <receiver>EX_SKU</receiver>
+   <slot>clear()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>756</x>
+     <y>255</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>670</x>
+     <y>254</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>EX_empty_comment</sender>
+   <signal>clicked()</signal>
+   <receiver>EX_comment</receiver>
+   <slot>clear()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>735</x>
+     <y>310</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>615</x>
+     <y>310</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>EX_empty_all</sender>
+   <signal>clicked()</signal>
+   <receiver>EX_comment</receiver>
+   <slot>clear()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>752</x>
+     <y>346</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>652</x>
+     <y>307</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>EX_empty_all</sender>
+   <signal>clicked()</signal>
+   <receiver>EX_SKU</receiver>
+   <slot>clear()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>712</x>
+     <y>347</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>675</x>
+     <y>256</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
 </ui>

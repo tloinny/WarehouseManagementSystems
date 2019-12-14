@@ -1,8 +1,10 @@
 #ifndef MAINWINDOW_H
 #define MAINWINDOW_H
-
 #include <QMainWindow>
 #include "sql.h"
+#include <QStandardItemModel>
+#include <QDateTime>
+#include <QMessageBox>
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -21,5 +23,13 @@ public:
 private:
     Ui::MainWindow *ui;
     SQL *mysql;
+
+signals:
+public slots:
+    void show_all_the_detail();
+    void search();
+    void entry_stock();
+    void removal_stock();
+    void change_password();
 };
 #endif // MAINWINDOW_H
