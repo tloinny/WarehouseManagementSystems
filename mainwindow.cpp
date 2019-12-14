@@ -12,7 +12,8 @@ MainWindow::MainWindow(QWidget *parent, SQL *sqlptr)
     connect(ui->Search_action,SIGNAL(clicked()),this,SLOT(search()));
     connect(ui->EN_confrim,SIGNAL(clicked()),this,SLOT(entry_stock()));
     connect(ui->EX_confrim,SIGNAL(clicked()),this,SLOT(removal_stock()));
-    connect(ui->actionchange_password,SIGNAL(clicked()),this,SLOT(change_password()));
+    connect(ui->actionchange_password,SIGNAL(triggered()),this,SLOT(change_password()));
+    connect(ui->actionexit_2,SIGNAL(triggered()),this,SLOT(exit()));
 }
 
 MainWindow::~MainWindow()
@@ -162,3 +163,10 @@ void MainWindow::change_password()
 {
 
 }
+
+void MainWindow::exit()
+{
+    emit sendsignal();
+    this->close();
+}
+

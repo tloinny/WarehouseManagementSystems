@@ -408,6 +408,12 @@
    </property>
   </action>
   <action name="actionchange_password">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="checked">
+    <bool>false</bool>
+   </property>
    <property name="text">
     <string>change password</string>
    </property>
@@ -436,8 +442,8 @@
      <y>107</y>
     </hint>
     <hint type="destinationlabel">
-     <x>623</x>
-     <y>107</y>
+     <x>522</x>
+     <y>118</y>
     </hint>
    </hints>
   </connection>
@@ -448,12 +454,12 @@
    <slot>clear()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>741</x>
-     <y>167</y>
+     <x>768</x>
+     <y>156</y>
     </hint>
     <hint type="destinationlabel">
-     <x>602</x>
-     <y>161</y>
+     <x>665</x>
+     <y>154</y>
     </hint>
    </hints>
   </connection>
@@ -468,8 +474,8 @@
      <y>192</y>
     </hint>
     <hint type="destinationlabel">
-     <x>663</x>
-     <y>163</y>
+     <x>687</x>
+     <y>154</y>
     </hint>
    </hints>
   </connection>
@@ -484,8 +490,8 @@
      <y>190</y>
     </hint>
     <hint type="destinationlabel">
-     <x>669</x>
-     <y>107</y>
+     <x>522</x>
+     <y>118</y>
     </hint>
    </hints>
   </connection>
@@ -500,8 +506,8 @@
      <y>255</y>
     </hint>
     <hint type="destinationlabel">
-     <x>670</x>
-     <y>254</y>
+     <x>522</x>
+     <y>268</y>
     </hint>
    </hints>
   </connection>
@@ -512,12 +518,12 @@
    <slot>clear()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>735</x>
-     <y>310</y>
+     <x>768</x>
+     <y>306</y>
     </hint>
     <hint type="destinationlabel">
-     <x>615</x>
-     <y>310</y>
+     <x>678</x>
+     <y>304</y>
     </hint>
    </hints>
   </connection>
@@ -528,12 +534,12 @@
    <slot>clear()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>752</x>
-     <y>346</y>
+     <x>768</x>
+     <y>342</y>
     </hint>
     <hint type="destinationlabel">
-     <x>652</x>
-     <y>307</y>
+     <x>687</x>
+     <y>304</y>
     </hint>
    </hints>
   </connection>
@@ -544,12 +550,12 @@
    <slot>clear()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>712</x>
-     <y>347</y>
+     <x>768</x>
+     <y>342</y>
     </hint>
     <hint type="destinationlabel">
-     <x>675</x>
-     <y>256</y>
+     <x>522</x>
+     <y>268</y>
     </hint>
    </hints>
   </connection>

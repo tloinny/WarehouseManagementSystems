@@ -25,11 +25,13 @@ private:
     SQL *mysql;
 
 signals:
+    void sendsignal();
 public slots:
     void show_all_the_detail();
     void search();
     void entry_stock();
     void removal_stock();
     void change_password();
+    void exit();
 };
 #endif // MAINWINDOW_H

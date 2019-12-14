@@ -146,8 +146,8 @@ public:
         label_2->setText(QApplication::translate("Form", "Password", nullptr));
         pushButton_2->setText(QApplication::translate("Form", "Sign In", nullptr));
         pushButton->setText(QApplication::translate("Form", "Log In", nullptr));
-        comboBox->setItemText(0, QApplication::translate("Form", "Owner", nullptr));
-        comboBox->setItemText(1, QApplication::translate("Form", "Admin", nullptr));
+        comboBox->setItemText(1, QApplication::translate("Form", "Owner", nullptr));
+        comboBox->setItemText(0, QApplication::translate("Form", "Admin", nullptr));
 
         label_3->setText(QApplication::translate("Form", "Type", nullptr));
         label->setText(QApplication::translate("Form", "Account", nullptr));
@@ -181,6 +181,7 @@ public slots:
                     //Sign_In_Success_flag = 1;
                     w->SetAccountInfo(admin->adminID,admin->adminWarehouseID,admin->adminName);
                     w->show();
+                    connect(w,SIGNAL(sendsignal()),this,SLOT(reshow()));
                     parent->hide();
                 }else
                 {
@@ -227,6 +228,13 @@ public slots:
         {
             qDebug("account or password can't be empty");
         }
+    }
+
+    void reshow()
+    {
+        lineEdit->clear();
+        lineEdit_2->clear();
+        parent->show();
     }
 };
 

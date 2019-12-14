@@ -11,5 +11,6 @@ int main(int argc, char *argv[])
 
     MainWindow w(nullptr,&Mysql);
     SignInWindow MySignInWindow(&Mysql, &w);
+
     return a.exec();
 }
