@@ -20,6 +20,7 @@ SOURCES += \
     main.cpp \
     mainwindow.cpp \
     owner.cpp \
+    ownerdashbroad.cpp \
     signupwindow.cpp \
     sql.cpp
 
@@ -28,12 +29,14 @@ HEADERS += \
     administrator.h \
     mainwindow.h \
     owner.h \
+    ownerdashbroad.h \
     signupwindow.h \
     sql.h
 
 FORMS += \
     SignInWindow.ui \
     mainwindow.ui \
+    ownerdashbroad.ui \
     signupwindow.ui
 
 # Default rules for deployment.
