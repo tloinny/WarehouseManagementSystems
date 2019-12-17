@@ -4,6 +4,7 @@
 #include<QSqlDatabase>
 #include "sql.h"
 #include "signupwindow.h"
+#include "ownerdashbroad.h"
 
 int main(int argc, char *argv[])
 {
@@ -12,7 +13,8 @@ int main(int argc, char *argv[])
 
     MainWindow w(nullptr,&Mysql);
     SignUpWindow su_w(nullptr);
-    SignInWindow MySignInWindow(&Mysql, &w, &su_w);
+    OwnerDashBroad O_DB(nullptr);
+    SignInWindow MySignInWindow(&Mysql, &w, &su_w, &O_DB);
 
     return a.exec();
 }

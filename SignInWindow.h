@@ -25,6 +25,7 @@
 #include "administrator.h"
 #include "owner.h"
 #include "signupwindow.h"
+#include "ownerdashbroad.h"
 
 QT_BEGIN_NAMESPACE
 
@@ -52,18 +53,21 @@ public:
     Owner *owner;
     MainWindow * w;
     SignUpWindow * SignUp_w;
+    OwnerDashBroad * O_DB;
 
-    SignInWindow(SQL * sqlptr = nullptr, MainWindow * W = nullptr, SignUpWindow * su_w = nullptr)
+    SignInWindow(SQL * sqlptr = nullptr, MainWindow * W = nullptr, SignUpWindow * su_w = nullptr, OwnerDashBroad * q_db = nullptr)
     {
         mysql = sqlptr;
         w = W;
-        SignUp_w =su_w;
+        SignUp_w = su_w;
+        O_DB = q_db;
         parent = new QWidget;
         setupUi(parent);
         connect(pushButton, SIGNAL(clicked()), this, SLOT(CheckSignIn()));
         connect(pushButton_2, SIGNAL(clicked()), this, SLOT(SignUpClicked()));
         connect(w,SIGNAL(sendsignal()),this,SLOT(reshow()));
         connect(SignUp_w,SIGNAL(sendsignal()),this,SLOT(reshow()));
+        connect(O_DB,SIGNAL(sendsignal()),this,SLOT(reshow()));
         parent->setWindowFlags(parent->windowFlags() &~ (Qt::WindowMinMaxButtonsHint));
         parent->setFixedSize(parent->width(),parent->height());
         parent->show();
@@ -207,6 +211,10 @@ public slots:
                     query.next();
                     qDebug()<<query.value(0).toString()<<query.value(1).toString();
                     owner = new Owner((query.value(0).toString()).toInt(nullptr,10),query.value(1).toString());
+                    O_DB->SetAccountInfo(owner->ownerName,owner->ownerID);
+                    O_DB->ShowAllTheAdmin();
+                    O_DB->show();
+                    parent->hide();
                 }else
                 {
                     QMessageBox::critical(nullptr,QObject::tr("Fail to log in..."), "account or password doesn't right");
