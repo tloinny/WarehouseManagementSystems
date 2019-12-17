@@ -20,6 +20,7 @@ SOURCES += \
     main.cpp \
     mainwindow.cpp \
     owner.cpp \
+    signupwindow.cpp \
     sql.cpp
 
 HEADERS += \
@@ -27,11 +28,13 @@ HEADERS += \
     administrator.h \
     mainwindow.h \
     owner.h \
+    signupwindow.h \
     sql.h
 
 FORMS += \
     SignInWindow.ui \
-    mainwindow.ui
+    mainwindow.ui \
+    signupwindow.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin

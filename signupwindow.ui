@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>SignUpWindow</class>
+ <widget class="QWidget" name="SignUpWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>366</width>
+    <height>275</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Form</string>
+  </property>
+  <widget class="QWidget" name="gridLayoutWidget">
+   <property name="geometry">
+    <rect>
+     <x>20</x>
+     <y>20</y>
+     <width>321</width>
+     <height>241</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>Consolas</family>
+     <pointsize>11</pointsize>
+    </font>
+   </property>
+   <layout class="QGridLayout" name="gridLayout">
+    <item row="3" column="0">
+     <widget class="QLabel" name="SignUpName">
+      <property name="font">
+       <font>
+        <family>Consolas</family>
+        <pointsize>11</pointsize>
+       </font>
+      </property>
+      <property name="text">
+       <string>Name</string>
+      </property>
+     </widget>
+    </item>
+    <item row="4" column="0">
+     <widget class="QLabel" name="SignUpName_2">
+      <property name="font">
+       <font>
+        <family>Consolas</family>
+        <pointsize>11</pointsize>
+       </font>
+      </property>
+      <property name="text">
+       <string>Password</string>
+      </property>
+     </widget>
+    </item>
+    <item row="2" column="1" colspan="2">
+     <widget class="QComboBox" name="SignUpBelongComboBox"/>
+    </item>
+    <item row="1" column="1" colspan="2">
+     <widget class="QComboBox" name="SignUpTypeComboBox">
+      <property name="font">
+       <font>
+        <family>Consolas</family>
+        <pointsize>11</pointsize>
+       </font>
+      </property>
+      <item>
+       <property name="text">
+        <string>admin</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>owner</string>
+       </property>
+      </item>
+     </widget>
+    </item>
+    <item row="2" column="0">
+     <widget class="QLabel" name="SignUpBelong">
+      <property name="text">
+       <string>Belong</string>
+      </property>
+     </widget>
+    </item>
+    <item row="4" column="1" colspan="2">
+     <widget class="QLineEdit" name="SignUpPasswordLine">
+      <property name="font">
+       <font>
+        <family>Consolas</family>
+        <pointsize>11</pointsize>
+       </font>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+      <property name="echoMode">
+       <enum>QLineEdit::Password</enum>
+      </property>
+     </widget>
+    </item>
+    <item row="1" column="0">
+     <widget class="QLabel" name="SignUpType">
+      <property name="font">
+       <font>
+        <family>Consolas</family>
+        <pointsize>11</pointsize>
+       </font>
+      </property>
+      <property name="text">
+       <string>Type</string>
+      </property>
+     </widget>
+    </item>
+    <item row="0" column="0" colspan="3">
+     <widget class="QLabel" name="Title">
+      <property name="font">
+       <font>
+        <family>Consolas</family>
+        <pointsize>11</pointsize>
+       </font>
+      </property>
+      <property name="layoutDirection">
+       <enum>Qt::LeftToRight</enum>
+      </property>
+      <property name="text">
+       <string>SIGN UP</string>
+      </property>
+      <property name="textFormat">
+       <enum>Qt::AutoText</enum>
+      </property>
+      <property name="scaledContents">
+       <bool>false</bool>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+     </widget>
+    </item>
+    <item row="3" column="1" colspan="2">
+     <widget class="QLineEdit" name="SignUpNameLine">
+      <property name="font">
+       <font>
+        <family>Consolas</family>
+        <pointsize>11</pointsize>
+       </font>
+      </property>
+     </widget>
+    </item>
+    <item row="6" column="2">
+     <widget class="QPushButton" name="SignUpCancel">
+      <property name="text">
+       <string>Cancel</string>
+      </property>
+     </widget>
+    </item>
+    <item row="6" column="1">
+     <widget class="QPushButton" name="SignUpConfirm">
+      <property name="text">
+       <string>Confirm</string>
+      </property>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

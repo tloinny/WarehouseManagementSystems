@@ -24,6 +24,7 @@
 #include "sql.h"
 #include "administrator.h"
 #include "owner.h"
+#include "signupwindow.h"
 
 QT_BEGIN_NAMESPACE
 
@@ -50,17 +51,19 @@ public:
     administrator *admin;
     Owner *owner;
     MainWindow * w;
-    int Sign_In_Success_flag;
+    SignUpWindow * SignUp_w;
 
-    SignInWindow(SQL * sqlptr = nullptr, MainWindow * W = nullptr)
+    SignInWindow(SQL * sqlptr = nullptr, MainWindow * W = nullptr, SignUpWindow * su_w = nullptr)
     {
         mysql = sqlptr;
         w = W;
-        Sign_In_Success_flag = 0;
+        SignUp_w =su_w;
         parent = new QWidget;
         setupUi(parent);
-        connect(pushButton, SIGNAL(clicked()), this, SLOT(CheckLogIn()));
-        connect(pushButton_2, SIGNAL(clicked()), this, SLOT(CheckSignIn()));
+        connect(pushButton, SIGNAL(clicked()), this, SLOT(CheckSignIn()));
+        connect(pushButton_2, SIGNAL(clicked()), this, SLOT(SignUpClicked()));
+        connect(w,SIGNAL(sendsignal()),this,SLOT(reshow()));
+        connect(SignUp_w,SIGNAL(sendsignal()),this,SLOT(reshow()));
         parent->setWindowFlags(parent->windowFlags() &~ (Qt::WindowMinMaxButtonsHint));
         parent->setFixedSize(parent->width(),parent->height());
         parent->show();
@@ -144,7 +147,7 @@ public:
         Form->setWindowTitle(QApplication::translate("Form", "", nullptr));
         label_4->setText(QApplication::translate("Form", "Warehouse Management System", nullptr));
         label_2->setText(QApplication::translate("Form", "Password", nullptr));
-        pushButton_2->setText(QApplication::translate("Form", "Sign In", nullptr));
+        pushButton_2->setText(QApplication::translate("Form", "Sign up", nullptr));
         pushButton->setText(QApplication::translate("Form", "Log In", nullptr));
         comboBox->setItemText(1, QApplication::translate("Form", "Owner", nullptr));
         comboBox->setItemText(0, QApplication::translate("Form", "Admin", nullptr));
@@ -155,79 +158,75 @@ public:
 
 signals:
 public slots:
-    void CheckLogIn()
-    {
-        QString Account = lineEdit->text();
-        QString Password = lineEdit_2->text();
-        if(Account != "" && Password != "")
-        {
-            QSqlQuery query;
-            QString sql;
-            if(comboBox->currentText() == "Admin")
-            {
-                sql = "select adminpassword from warehouse_db.admin where adminaccount = \'"+Account+"\';";
-                qDebug()<<sql;
-                query.exec(sql);
-                qDebug()<<query.lastError();
-                query.next();
-                if(query.value(0).toString()==Password)
-                {
-                    qDebug()<<"admin log in success";
-                    sql = "select adminid, adminwarehouse, adminname from warehouse_db.admin where adminaccount = \'"+Account+"\';";
-                    query.exec(sql);
-                    query.next();
-                    qDebug()<<query.value(0).toString()<<query.value(1).toString()<<query.value(2).toString();
-                    admin = new administrator((query.value(0).toString()).toInt(nullptr,10),(query.value(1).toString()).toInt(nullptr,10),query.value(2).toString());
-                    //Sign_In_Success_flag = 1;
-                    w->SetAccountInfo(admin->adminID,admin->adminWarehouseID,admin->adminName);
-                    w->show();
-                    connect(w,SIGNAL(sendsignal()),this,SLOT(reshow()));
-                    parent->hide();
-                }else
-                {
-                    QMessageBox::critical(nullptr,QObject::tr("Fail to log in..."), "account or password doesn't right");
-                    lineEdit->clear();
-                    lineEdit_2->clear();
-                }
-            }else if(comboBox->currentText() == "Owner")
-            {
-                sql = "select ownerpassword from warehouse_db.owner where owneraccount = \'"+Account+"\';";
-                qDebug()<<sql;
-                query.exec(sql);
-                qDebug()<<query.lastError();
-                query.next();
-                if(query.value(0).toString()==Password)
-                {
-                    qDebug()<<"owner log in success";
-                    sql = "select ownerid, ownername from warehouse_db.owner where owneraccount = \'"+Account+"\';";
-                    query.exec(sql);
-                    query.next();
-                    qDebug()<<query.value(0).toString()<<query.value(1).toString();
-                    owner = new Owner((query.value(0).toString()).toInt(nullptr,10),query.value(1).toString());
-                }else
-                {
-                    QMessageBox::critical(nullptr,QObject::tr("Fail to log in..."), "account or password doesn't right");
-                    lineEdit->clear();
-                    lineEdit_2->clear();
-                }
-            }
-        }else
-        {
-            qDebug("account or password can't be empty");
-        }
-    }
     void CheckSignIn()
     {
-        qDebug("SignIn");
+        QString Type = comboBox->currentText();
         QString Account = lineEdit->text();
         QString Password = lineEdit_2->text();
-        if(Account != "" && Password != "")
+        if(Type == "Admin")
         {
-            qDebug("good condition!");
-        }else
-        {
-            qDebug("account or password can't be empty");
+            if(Account != "" && Password != "")
+            {
+                QSqlQuery query;
+                QString sql;
+                if(comboBox->currentText() == "Admin")
+                {
+                    sql = "select adminpassword from warehouse_db.admin where adminaccount = \'"+Account+"\';";
+                    qDebug()<<sql;
+                    query.exec(sql);
+                    qDebug()<<query.lastError();
+                    query.next();
+                    if(query.value(0).toString()==Password)
+                    {
+                        qDebug()<<"admin log in success";
+                        sql = "select adminid, adminwarehouse, adminname from warehouse_db.admin where adminaccount = \'"+Account+"\';";
+                        query.exec(sql);
+                        query.next();
+                        qDebug()<<query.value(0).toString()<<query.value(1).toString()<<query.value(2).toString();
+                        admin = new administrator((query.value(0).toString()).toInt(nullptr,10),(query.value(1).toString()).toInt(nullptr,10),query.value(2).toString());
+                        //Sign_In_Success_flag = 1;
+                        w->SetAccountInfo(admin->adminID,admin->adminWarehouseID,admin->adminName);
+                        w->show();
+                        parent->hide();
+                    }else
+                    {
+                        QMessageBox::critical(nullptr,QObject::tr("Fail to log in..."), "account or password doesn't right");
+                        lineEdit->clear();
+                        lineEdit_2->clear();
+                    }
+                }else if(comboBox->currentText() == "Owner")
+                {
+                    sql = "select ownerpassword from warehouse_db.owner where owneraccount = \'"+Account+"\';";
+                    qDebug()<<sql;
+                    query.exec(sql);
+                    qDebug()<<query.lastError();
+                    query.next();
+                    if(query.value(0).toString()==Password)
+                    {
+                        qDebug()<<"owner log in success";
+                        sql = "select ownerid, ownername from warehouse_db.owner where owneraccount = \'"+Account+"\';";
+                        query.exec(sql);
+                        query.next();
+                        qDebug()<<query.value(0).toString()<<query.value(1).toString();
+                        owner = new Owner((query.value(0).toString()).toInt(nullptr,10),query.value(1).toString());
+                    }else
+                    {
+                        QMessageBox::critical(nullptr,QObject::tr("Fail to log in..."), "account or password doesn't right");
+                        lineEdit->clear();
+                        lineEdit_2->clear();
+                    }
+                }
+            }else
+            {
+                QMessageBox::critical(nullptr,QObject::tr("Fail to log in..."), "account or password can't be empty");
+            }
+
         }
+    }
+    void SignUpClicked()
+    {
+        SignUp_w->show();
+        parent->hide();
     }
 
     void reshow()

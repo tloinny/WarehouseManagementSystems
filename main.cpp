@@ -3,6 +3,7 @@
 #include <QApplication>
 #include<QSqlDatabase>
 #include "sql.h"
+#include "signupwindow.h"
 
 int main(int argc, char *argv[])
 {
@@ -10,7 +11,8 @@ int main(int argc, char *argv[])
     static SQL Mysql("QMYSQL","127.0.0.1",3306,"root","123456");
 
     MainWindow w(nullptr,&Mysql);
-    SignInWindow MySignInWindow(&Mysql, &w);
+    SignUpWindow su_w(nullptr);
+    SignInWindow MySignInWindow(&Mysql, &w, &su_w);
 
     return a.exec();
 }
