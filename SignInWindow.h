@@ -163,8 +163,6 @@ public slots:
         QString Type = comboBox->currentText();
         QString Account = lineEdit->text();
         QString Password = lineEdit_2->text();
-        if(Type == "Admin")
-        {
             if(Account != "" && Password != "")
             {
                 QSqlQuery query;
@@ -220,8 +218,6 @@ public slots:
             {
                 QMessageBox::critical(nullptr,QObject::tr("Fail to log in..."), "account or password can't be empty");
             }
-
-        }
     }
     void SignUpClicked()
     {
