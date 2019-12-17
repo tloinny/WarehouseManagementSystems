@@ -24,6 +24,7 @@ public:
     void ShowAllTheAdmin();
 
 private:
+    int update_flag;
     Ui::OwnerDashBroad *ui;
 
 signals:
@@ -31,6 +32,7 @@ signals:
 public slots:
     void DelectAdmin();
     void ExitClicked();
+    void ChangeItem(QStandardItem* item);
 };
 
 #endif // OWNERDASHBROAD_H

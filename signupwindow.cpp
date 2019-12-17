@@ -90,6 +90,8 @@ void SignUpWindow::CheckSignUp()
                     query.exec(sql);
                     qDebug()<<query.lastError();
                     QMessageBox::information(nullptr,QObject::tr("information"), QString("hello new administrator, please note down your account: %1 !").arg(QString::number(account,10)));
+                    ui->SignUpNameLine->clear();
+                    ui->SignUpPasswordLine->clear();
                     this->hide();
                     emit sendsignal();
                 }
@@ -121,6 +123,8 @@ void SignUpWindow::CheckSignUp()
                 query.exec(sql);
                 qDebug()<<query.lastError();
                 QMessageBox::information(nullptr,QObject::tr("information"), QString("hello new owner, please note down your account: %1 !").arg(QString::number(account,10)));
+                ui->SignUpNameLine->clear();
+                ui->SignUpPasswordLine->clear();
                 this->hide();
                 emit sendsignal();
             }
