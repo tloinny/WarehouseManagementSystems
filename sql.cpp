@@ -18,8 +18,4 @@ SQL::SQL(const QString db_type, const QString HostName, int port, const QString 
         QMessageBox::critical(nullptr,QObject::tr("Fail to connect the database..."), mysql.lastError().text());
         qDebug()<<mysql.lastError().text();
     }
-    else
-    {
-//        QMessageBox::information(nullptr,QObject::tr("Tips"),QObject::tr("Successful to connect the database!"));
-    }
 }
