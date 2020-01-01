@@ -19,7 +19,7 @@
    </font>
   </property>
   <property name="windowTitle">
-   <string>Form</string>
+   <string>Owner Dashboard</string>
   </property>
   <widget class="QGroupBox" name="groupBox">
    <property name="geometry">

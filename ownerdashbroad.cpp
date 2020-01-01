@@ -36,7 +36,6 @@ void OwnerDashBroad::ShowAllTheAdmin()
     disconnect(ui->AdminTable->model(),SIGNAL(itemChanged(QStandardItem *)),this,SLOT(ChangeItem(QStandardItem *)));
     QSqlQuery query;
     query.exec("SELECT * FROM warehouse_db.admin;");
-    model->clear();
     for(int i=0; query.next();++i)
     {
         for(int n = 0;n<4;++n)
