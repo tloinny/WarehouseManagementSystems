@@ -101,7 +101,15 @@ void MainWindow::entry_stock()
             {
                 sql = QString("INSERT INTO warehouse_db.entry_log_%1 (`EntryLogTimeStamp`, `EntryLogSKU`,`EntryLogNum`,`EntryLogComment`) VALUES ('%2', '%3','%4','%5');").arg(ui->UserWarehouseIDLine->text(),timestamp,ui->EN_SKU->text(),ui->EN_Num->text(),ui->EN_comment->text());
                 query.exec(sql);
-                sql = QString("update warehouse_db.warehouse_detail_%1 set DetailStocks = DetailStocks+%2 where DetailSKU = %3;").arg(ui->UserWarehouseIDLine->text(),ui->EN_Num->text(),ui->EN_SKU->text());
+                sql = QString("select DetailSKU from warehouse_db.warehouse_detail_%1 where DetailSKU = %2").arg(ui->UserWarehouseIDLine->text(),ui->EN_SKU->text());
+                query.exec(sql);
+                if(query.size()>0)
+                {
+                    sql = QString("update warehouse_db.warehouse_detail_%1 set DetailStocks = DetailStocks+%2 where DetailSKU = %3;").arg(ui->UserWarehouseIDLine->text(),ui->EN_Num->text(),ui->EN_SKU->text());
+                }else
+                {
+                    sql = QString("INSERT INTO warehouse_db.warehouse_detail_%1 (`DetailSKU`, `DetailStocks`) VALUES ('%2', '%3');").arg(ui->UserWarehouseIDLine->text(),ui->EN_SKU->text(),ui->EN_Num->text());
+                }
                 query.exec(sql);
                 QMessageBox::information(nullptr,QObject::tr("information"), "entry success!");
             }else
