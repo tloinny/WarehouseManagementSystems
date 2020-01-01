@@ -58,7 +58,7 @@ void MainWindow::search()
     if(ui->SearchBy_comboBox->currentText() == "SKU")
     {
         query.exec("SELECT * FROM warehouse_db.warehouse_detail_"+ui->UserWarehouseIDLine->text()+" where detailsku = \'"+Key+"\';");
-        if(query.size()<0) QMessageBox::critical(nullptr,QObject::tr("error..."), "No result");
+        if(query.size()==0) QMessageBox::critical(nullptr,QObject::tr("error..."), "No result");
         for(int i=0; query.next();++i)
         {
             model_temp->setItem(i, 0, new QStandardItem(query.value(0).toString()));
